@@ -85,7 +85,7 @@ make pilha
 - Possivelmente evoluir para resoluções de algoritmos clássicos
 
 ---
-
+<!--
 ## 🤝 Como contribuir
 
 Contribuições são muito bem-vindas! Você pode:
@@ -96,7 +96,7 @@ Contribuições são muito bem-vindas! Você pode:
 - 📘 Comentar e documentar melhor as implementações  
 
 Basta fazer um fork e abrir um **Pull Request** 😉
-<!--
+
 ---
 
 ## 📜 Licença
@@ -105,5 +105,4 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 ---
 -->
 > Desenvolvido por **Clecio Freire** 👨‍💻 — Estudante de Ciência da Computação.
-
 ---
