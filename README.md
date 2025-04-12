@@ -58,6 +58,14 @@ make pilha
 
 ## 📌 Estruturas Implementadas
 
+| Método de Ordenação      | Status         | Descrição                                 |
+|--------------------------|----------------|-------------------------------------------|
+| Bubble Sort              | ✅ Concluído    | Ordenação por troca simples               |
+| Selection Sort           | 🛠️ Em construção | Seleção do menor elemento                 |
+| Insertion Sort           | 🚧 Em breve | Inserção ordenada                         |
+| Quick Sort               | 🚧 Em breve | Divisão e conquista com pivô              |
+| Merge Sort               | 🚧 Em breve | Ordenação por intercalação recursiva      |
+
 | Estrutura                | Status      | Descrição                                       |
 |--------------------------|-------------|-------------------------------------------------|
 | Listas Enacadeadas       | 🚧 Em breve  | Simples, duplamente e circularmente encadeadas  |
@@ -67,7 +75,6 @@ make pilha
 | Árvores AVL              | 🚧 Em breve  | Árvores balanceadas por altura                  |
 | Tabelas Hash             | 🚧 Em breve  | Implementação básica de hashing                 |
 | Grafos                   | 🚧 Em breve  | Lista de adjacência e matriz                    |
-| Métodos de Ordenação     | ✅ Concluído | Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, Merge Sort |
 
 ---
 
