@@ -1,54 +1,53 @@
-#include <stdio.h> 
-#include <stdlib.h>
+#include <math.h>
+#include <stdio.h>
 #include <time.h>
+#include <random>
 
-int main(void){
-    int n;
-    printf("\nInsira o tamanho do vetor: ");
-        scanf("%d",&n);
-    int* vetor = (int*) malloc(n * sizeof(int));
-    int ordenado, troca;
+void inicia_vetor(int *vetor, int n) {
+  srand(clock()); //seed (clock: tempo atual) para gerar os números aleatórios
+    for (int i = 0; i < n; i++) {
+      vetor[i] = (abs(rand()) % 100);
+  }
+}
 
-    printf("\nPreenchendo o vetor com %d números aleatórios",n);
-    printf("\n...");
+void imprimir(int *vetor, int n) {
+  printf("[");
+    for (int i = 0; i < n; i++) {
+      printf(" %d ", vetor[i]);
+  }
+  printf("]\n");
+  printf("\n");
+}
 
-    srand(time(NULL));
+void troca(int *vetor, int i, int j) {
+  int aux = vetor[i];
+    vetor[i] = vetor[j];
+    vetor[j] = aux;
+}
 
-    for(int i=0; i<n; i++){
-        vetor[i] = rand()%100;
+void bubbleSort(int *vetor, int n){
+  for(int i=0; i<n-1; i++){
+    for(int j=0; j<n-1-i; j++){
+      if(vetor[j]>vetor[j+1]){
+        troca(vetor, j, j+1);
+      }
     }
-    printf("\n");
-    printf("\nVetor preenchido: ");
-    printf("[");
-    for(int i=0; i<n; i++){
-        printf(" %d ",vetor[i]);
-    }
-    printf("]");
+  }
+}
 
-    printf("\n");
-    printf("\nOrdenando o vetor");
-    printf("\n...");
-
-    do {
-        troca=0;
-        for(int i=0; i<n-1; i++){
-            if(vetor[i] > vetor [i+1]){
-                ordenado = vetor[i];
-                vetor[i] = vetor[i+1];
-                vetor[i+1] = ordenado;
-                troca = 1;    
-            } 
-    }
-} while (troca==1);
-
-    printf("\n");
-    printf("\nVetor ordenado: ");
-    printf("[");
+int main(int argc, char const *argv[]) {
+  int n = 0;
+  printf("Digite o tamanho do vetor: ");
+    scanf("%d", &n);
     
-    for(int i=0; i<n; i++){
-        printf(" %d ",vetor[i]);
-    }
-    printf("]");
-    free(vetor);
-    printf("\n \n");
+  int vetor[n];
+
+  inicia_vetor(vetor, n);
+  printf("\nVetor gerado: ");
+  imprimir(vetor, n);
+
+  bubbleSort(vetor, n);
+
+  printf("\nVetor ordenado: ");
+  imprimir(vetor, n);
 }
