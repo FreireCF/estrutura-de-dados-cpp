@@ -49,7 +49,6 @@ void imprimirLista(){
 }
 
 int main(){
-    //listas são FILO (first in, last out), ou seja, o primeiro elemento a entrar, será o último a sair
     adicionarElemento(1, 5); 
     adicionarElemento(0, 10);
     adicionarElemento(3, 9); //adiciona no início da lista
