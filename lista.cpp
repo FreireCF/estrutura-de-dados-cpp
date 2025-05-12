@@ -60,6 +60,47 @@ void inserirMeio(Node **lista, int novoElemento, int anterior){ //iremos inserir
     }
 }
 
+Node* buscarElemento(Node **lista, int buscar){ 
+    Node *aux = *lista, *endereco = NULL;
+    
+    while(aux->prox!=NULL && aux->elemento!=buscar){
+        aux = aux->prox;
+    } 
+    if (aux!=NULL && aux->elemento == buscar){
+        endereco = aux;
+        return endereco;
+    }
+    return NULL;
+}
+
+Node* remover(Node **lista, int numRemove){
+    Node *aux, *remover=NULL;
+
+    if(*lista!=NULL){
+        if((*lista)->elemento == numRemove){
+            remover = *lista;
+            *lista = remover->prox;
+        } else {
+            aux = *lista;
+            while(aux->prox->elemento!=numRemove && aux->prox!=NULL){
+                aux = aux->prox;
+            } 
+            if(aux->prox!=NULL){
+                remover = aux->prox;
+                aux->prox = remover->prox;
+            }
+        }
+    }
+    return remover;
+}
+
+int pedirElemento(){
+    int novoElemento;
+    printf("\nDigite um número inteiro para inserir na lista: ");
+        scanf("%d",&novoElemento);
+    return novoElemento;
+}
+
 void imprimirLista(Node **lista){
     Node *aux = *lista;
     printf("\nLista atual: ");
@@ -71,13 +112,6 @@ void imprimirLista(Node **lista){
     printf("]\n");
 }
 
-int pedirElemento(){
-    int novoElemento;
-    printf("\nDigite um número inteiro para inserir na lista: ");
-        scanf("%d",&novoElemento);
-    return novoElemento;
-}
-
 int menu(){
     int opc;
     printf("\n----------------MENU----------------");
@@ -86,6 +120,8 @@ int menu(){
     printf("\n| [2] - Inserir no meio da lista   |");
     printf("\n| [3] - Inserir no final da lista  |");
     printf("\n| [4] - Ver a lista                |");
+    printf("\n| [5] - Buscar elemento            |");
+    printf("\n| [6] - Remover elemento           |");
     printf("\n------------------------------------");
     printf("\nDigite sua opção: ");
         scanf("%d",&opc);
@@ -93,7 +129,7 @@ int menu(){
 }
 
 int main(){
-    Node *lista = NULL;
+    Node *lista = NULL, *busca;
     int opc = -1, elemento = 0;
     
     while(opc!=0){
@@ -106,7 +142,7 @@ int main(){
             break;
         case 1:
             elemento = pedirElemento();
-           inserirInicio(&lista, elemento);
+            inserirInicio(&lista, elemento);
             break;
         case 2:
             elemento = pedirElemento();
@@ -122,6 +158,25 @@ int main(){
             break;
         case 4:
             imprimirLista(&lista);
+            break;
+        case 5:
+            if(lista == NULL){
+                printf("\nNão é possível realizar buscas em uma lista vazia!");
+            } else {
+            printf("\nDigite o valor para busca:");
+                scanf("%d",&elemento);
+            busca = buscarElemento(&lista, elemento);
+            if(busca){
+                printf("\nO elemento %d exite na lista!",elemento);
+            } else {
+                printf("\nO elemento %d não existe na lista!",elemento);
+            }
+        }
+            break;
+        case 6:
+            printf("\nDigite o valor para busca:");
+                scanf("%d",&elemento);
+            remover(&lista, elemento);
             break;
         default:
             printf("\nOpção inválida!");
