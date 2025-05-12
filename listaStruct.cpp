@@ -100,6 +100,27 @@ void imprimirLista(Queue lista){ //como só iremos imprimir, podemos usar uma c�
     printf("]\n");
 }
 
+Node* remover(Queue *lista, int numRemove){
+    Node *aux, *remover=NULL;
+
+    if(lista->inicio!=NULL){
+        if(lista->inicio->elemento == numRemove){
+            remover = lista->inicio;
+            lista->inicio = remover->prox;
+        } else {
+            aux = lista->inicio;
+            while(aux->prox->elemento!=numRemove && aux->prox!=NULL){
+                aux = aux->prox;
+            } 
+            if(aux->prox!=NULL){
+                remover = aux->prox;
+                aux->prox = remover->prox;
+            }
+        }
+    }
+    return remover;
+}
+
 int pedirElemento(){
     int novoElemento;
     printf("\nDigite um número inteiro para inserir na lista: ");
@@ -116,6 +137,7 @@ int menu(){
     printf("\n| [3] - Inserir no final da lista  |");
     printf("\n| [4] - Ver a lista                |");
     printf("\n| [5] - Buscar elemento            |");
+    printf("\n| [6] - Remover elemento           |");
     printf("\n------------------------------------");
     printf("\nDigite sua opção: ");
         scanf("%d",&opc);
@@ -124,7 +146,7 @@ int menu(){
 
 int main(){
     Queue lista;
-    Node *busca, *remover;
+    Node *busca;
     int opc = -1, elemento = 0, anterior;
     criarLista(&lista);
     
@@ -168,6 +190,11 @@ int main(){
                 printf("\nO elemento %d não existe na lista!",elemento);
             }
         }
+            break;
+        case 6:
+        printf("\nDigite o valor para remover:");
+            scanf("%d",&elemento);
+        remover(&lista, elemento);
             break;
         default:
             printf("\nOpção inválida!");
