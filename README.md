@@ -1,11 +1,10 @@
----
+<!-----
 
 # 📚 Estruturas de Dados em C
 
 Este repositório contém implementações clássicas de **estruturas de dados em C e C++**, organizadas por tipo e pronta para estudo.
 
 ---
-<!--
 ## 📂 Estrutura do Projeto
 
 ```
@@ -53,7 +52,6 @@ Se preferir, use o Makefile (em breve no projeto):
 ```bash
 make pilha
 ```
--->
 ---
 
 ## 📌 Estruturas Implementadas
@@ -85,7 +83,6 @@ make pilha
 - Possivelmente evoluir para resoluções de algoritmos clássicos
 
 ---
-<!--
 ## 🤝 Como contribuir
 
 Contribuições são muito bem-vindas! Você pode:
@@ -98,11 +95,10 @@ Contribuições são muito bem-vindas! Você pode:
 Basta fazer um fork e abrir um **Pull Request** 😉
 
 ---
-
 ## 📜 Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
----
--->
+--
 > Desenvolvido por **Clecio Freire** 👨‍💻 — Estudante de Ciência da Computação.
 ---
+-->
